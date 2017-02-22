@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "opportunity/ruby"
+require "opportunity"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

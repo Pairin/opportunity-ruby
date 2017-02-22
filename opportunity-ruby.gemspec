@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'opportunity/ruby/version'
+require 'opportunity/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "opportunity-ruby"
-  spec.version       = Opportunity::Ruby::VERSION
+  spec.version       = Opportunity::VERSION
   spec.authors       = ["Alejandro Vazquez"]
   spec.email         = ["avazquez@pairin.com"]
 
