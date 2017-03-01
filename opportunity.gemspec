@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'opportunity/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "opportunity-ruby"
+  spec.name          = "opportunity"
   spec.version       = Opportunity::VERSION
   spec.authors       = ["Alejandro Vazquez"]
   spec.email         = ["avazquez@pairin.com"]
 
   spec.summary       = %q{Gem for accessing Opportunity API}
-  spec.homepage      = "https://github.com/Pairin/opportunity-api"
+  spec.homepage      = "https://github.com/Pairin/opportunity-ruby"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
