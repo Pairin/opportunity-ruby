@@ -19,7 +19,7 @@ require "opportunity/career"
 
 module Opportunity
   
-  @api_base = "http://localhost:3000"
+  @api_base = "http://staging.hqpfr7zpgq.us-east-1.elasticbeanstalk.com/"
   
   class << self
     attr_reader :api_base
