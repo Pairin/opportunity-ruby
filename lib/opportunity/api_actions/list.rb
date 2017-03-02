@@ -20,7 +20,9 @@ module  Opportunity
       end
 
       def accepted_params(params)
-        params.reject{|(k,v)| !ACCEPTABLE_LIST_PARAMS.include?(k.to_s) }
+        params.reject do |(k,v)|
+          !ACCEPTABLE_LIST_PARAMS.include?(k.to_s) || v.blank?
+        end
       end
 
     end
