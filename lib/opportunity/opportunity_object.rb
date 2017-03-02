@@ -13,7 +13,11 @@ module Opportunity
       data.each do |(k,v)|
         metaclass.instance_eval do
           if child_mappings[k.to_sym]
-            method_value = v.map{|list_value| child_mappings[k.to_sym].new(list_value) }
+            if v.kind_of?(Array)
+              method_value = v.map{|list_value| child_mappings[k.to_sym].new(list_value) }
+            else
+              method_value = child_mappings[k.to_sym].new(v)
+            end
           else
             method_value = v
           end

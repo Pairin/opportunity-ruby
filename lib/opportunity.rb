@@ -14,6 +14,7 @@ require "opportunity/opportunity_object"
 require "opportunity/api_resource"
 
 # Objects
+require "opportunity/education_requirement"
 require "opportunity/occupation"
 require "opportunity/career"
 
