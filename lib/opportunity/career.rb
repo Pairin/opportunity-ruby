@@ -12,5 +12,9 @@ module Opportunity
       CHILD_RESOURCE_MAPPING
     end
 
+    def self.custom_accepted_params
+      ['ed_req', 'name']
+    end
+
   end
 end

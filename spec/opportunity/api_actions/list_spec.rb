@@ -55,7 +55,19 @@ module Opportunity
 
           it "should remove unaccepted params" do
             acceptable_params = {page: 1}
-            expect(subject.class.accepted_params(params)).to eq(acceptable_params)  
+            expect(subject.class.accepted_params(params)).to eq(acceptable_params)
+          end
+        end
+
+        context "when custom accepted params given" do
+          let(:params) { {hi: 'yo', page: 1} }
+
+          before do
+            allow(subject.class).to receive(:custom_accepted_params).and_return(['hi'])
+          end
+
+          it "should not remove custom accepted params" do
+            expect(subject.class.accepted_params(params)).to eq(params)
           end
         end
       end

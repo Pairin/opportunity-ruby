@@ -6,11 +6,10 @@ module  Opportunity
 
       def list(params={}, opts={})
         response = request(:get, self.resource_url, accepted_params(params), opts)
-
         parsed_response = JSON.parse(response.body)
         container_key = parsed_response.keys[0]
 
-        initialize_list(parsed_response[container_key])        
+        initialize_list(parsed_response[container_key])
       end
 
       def initialize_list(response_list)
@@ -20,9 +19,13 @@ module  Opportunity
       end
 
       def accepted_params(params)
-        params.reject do |(k,v)|
-          !ACCEPTABLE_LIST_PARAMS.include?(k.to_s) || v.blank?
+        params.reject do |k,v|
+          !(ACCEPTABLE_LIST_PARAMS | custom_accepted_params).include?(k.to_s) || !v
         end
+      end
+
+      def custom_accepted_params
+        []
       end
 
     end
