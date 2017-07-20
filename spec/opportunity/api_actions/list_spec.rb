@@ -18,20 +18,18 @@ module Opportunity
         end
 
         context "when response isn't empty" do
-          before do
-            stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-              stub.get(subject.class.resource_url) do |env|
-                [
-                  200,
-                  {},
-                  {'subject_class' => [
-                    {id: 1, name: "1", overview: "1"},
-                    {id: 2, name: "2", overview: "2"}
-                  ]}.to_json
+          let(:response) {
+            OpenStruct.new(body: {
+                'subject_class' => [
+                  {id: 1, name: "1", overview: "1"},
+                  {id: 2, name: "2", overview: "2"}
                 ]
-              end
-            end
-            allow(Faraday).to receive(:new).and_return(faraday(stubs))
+              }.to_json
+            )
+          }
+
+          before do
+            allow(subject.class).to receive(:request).and_return(response)
           end
 
           it "should return the correct object type" do

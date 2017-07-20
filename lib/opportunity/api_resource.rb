@@ -18,7 +18,7 @@ module Opportunity
     def refresh
       response = self.class.request(:get, resource_url)
       parsed_response = JSON.parse(response.body)
-      self.class.new(parsed_response.values.first)
+      self.class.new(parsed_response)
     end
 
     def resource_url

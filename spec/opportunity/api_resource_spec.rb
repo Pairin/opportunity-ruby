@@ -18,7 +18,11 @@ module Opportunity
     end
 
     describe "#resource_url" do
+      let(:resource_id) { 1 }
+      let(:subject_stub) { subject.class.new({id: resource_id}) }
+
       it "should return the resource url with an appended resource id" do
+        expect(subject_stub.resource_url).to eq("#{subject.class.resource_url}/#{resource_id}")
       end
     end
 
@@ -33,19 +37,18 @@ module Opportunity
     end
 
     describe "#refresh" do
-      let(:response_params) { {id: 1, name: "1", overview: "1"} }
-      let(:subject_stub) { subject.class.new(response_params) }
+      let(:response_body) { {'id' => 1, 'name' => "1", 'overview' => "1"} }
+      let(:response) { OpenStruct.new(body: response_body.to_json) }
 
       before do
-        stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-          stub.get(subject.class.resource_url) { |env| [200, {}, subject_stub]}
-        end
-        allow(Faraday).to receive(:new).and_return(faraday(stubs))
+        allow(subject.class).to receive(:request).and_return(response)
       end
 
       it "should initialize a new resource with request response" do
-        # expect(subject.class).to receive(:new).with(response_params)
-        # subject_stub.refresh
+        subject_stub = subject.class.new(id: 1)
+
+        expect(subject.class).to receive(:new).with(response_body)
+        subject_stub.refresh
       end
     end
 

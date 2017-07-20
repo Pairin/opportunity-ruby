@@ -9,10 +9,4 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  def faraday(stubs)
-    Faraday.new do |builder|
-      builder.adapter :test, stubs
-    end
-  end
-
 end
