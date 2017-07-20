@@ -19,6 +19,10 @@ module Opportunity
           downcase
       end
 
+      def constantize(string)
+        Object.const_get("Opportunity::#{string.capitalize}")
+      end
+
     end
 
   end
