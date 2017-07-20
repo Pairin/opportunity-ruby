@@ -2,17 +2,21 @@ module Opportunity
   class APIResource < OpportunityObject
     extend Opportunity::APIActions::Request
 
-    def self.class_name
-      self.name.split("::")[-1]
-    end
+    class << self
 
-    def self.resource_url
-      "/v1/#{Util.underscore(class_name)}s"
-    end
+      def class_name
+        self.name.split("::")[-1]
+      end
 
-    def self.retrieve(id, opts={})
-      resource_instance = self.new(opts.merge!({id: id}))
-      resource_instance.refresh
+      def resource_url
+        "/v1/#{Util.underscore(class_name)}s"
+      end
+
+      def retrieve(id, opts={})
+        resource_instance = self.new(opts.merge!({id: id}))
+        resource_instance.refresh
+      end
+
     end
 
     def refresh
