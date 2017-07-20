@@ -10,5 +10,9 @@ module Opportunity
 
     end
 
+    def programs(params={})
+      Program.list({institution_id: self.id}.merge!(params))
+    end
+
   end
 end
