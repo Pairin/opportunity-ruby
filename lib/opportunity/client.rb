@@ -25,7 +25,7 @@ module Opportunity
 
         request = Net::HTTP::Get.new(uri.request_uri)
         request['Authorization'] = "Token token=#{'pairin'}"
-      
+
         api_response = http.request(request)
       end
 
