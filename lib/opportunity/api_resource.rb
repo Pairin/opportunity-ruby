@@ -7,7 +7,7 @@ module Opportunity
     end
 
     def self.resource_url
-      "/v1/#{class_name.downcase}s"
+      "/v1/#{Util.underscore(class_name)}s"
     end
 
     def self.retrieve(id, opts={})

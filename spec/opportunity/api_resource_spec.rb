@@ -12,7 +12,7 @@ module Opportunity
 
     describe ".resource_url" do
       it "should return the correct resource url" do
-        expected_resource_url = "/v1/#{subject.class.class_name.downcase}s"
+        expected_resource_url = "/v1/#{Util.underscore(subject.class.class_name)}s"
         expect(subject.class.resource_url).to eq(expected_resource_url)
       end
     end

@@ -30,5 +30,12 @@ module Opportunity
       end
     end
 
+    describe ".underscore" do
+      it "should underscore a string" do
+        expect(Util.underscore("HiGuys")).to eq("hi_guys")
+        expect(Util.underscore("What")).to eq("what")
+      end
+    end
+
   end
 end
