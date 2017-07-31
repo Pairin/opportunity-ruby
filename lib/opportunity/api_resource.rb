@@ -1,3 +1,5 @@
+require 'plural'
+
 module Opportunity
   class APIResource < OpportunityObject
     extend Opportunity::APIActions::Request
@@ -9,7 +11,7 @@ module Opportunity
       end
 
       def resource_url
-        "/v1/#{Util.underscore(class_name)}s"
+        "/v1/#{Util.underscore(class_name).plural}"
       end
 
       def retrieve(id, opts={})
