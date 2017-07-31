@@ -18,6 +18,7 @@ require "opportunity/occupation"
 require "opportunity/program"
 require "opportunity/award_level"
 require "opportunity/institution"
+require "opportunity/industry"
 
 module Opportunity
 
