@@ -1,6 +1,7 @@
 module Opportunity
   class Occupation < APIResource
     extend APIActions::List
+    extend APIActions::Retrievable
 
     has_many :programs
 

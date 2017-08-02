@@ -5,6 +5,7 @@ require "json"
 # Actions
 require "opportunity/api_actions/request"
 require "opportunity/api_actions/list"
+require "opportunity/api_actions/retrievable"
 
 # Base
 require "opportunity/util"
