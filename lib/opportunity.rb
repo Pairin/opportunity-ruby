@@ -21,6 +21,11 @@ require "opportunity/award_level"
 require "opportunity/institution"
 require "opportunity/industry"
 
+# Child Objects
+require "opportunity/occupations/education_statistic"
+require "opportunity/occupations/employment_statistic"
+require "opportunity/occupations/wage_statistic"
+
 module Opportunity
 
   # @api_base = "http://staging.hqpfr7zpgq.us-east-1.elasticbeanstalk.com/"

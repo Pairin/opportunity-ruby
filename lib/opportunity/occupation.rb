@@ -11,6 +11,14 @@ module Opportunity
         ['title', 'wage_min', 'wage_max', 'industry', 'interests', 'ed', 'order']
       end
 
+      def child_mappings
+        {
+          education: Occupations::EducationStatistic,
+          employment: Occupations::EmploymentStatistic,
+          wage: Occupations::WageStatistic
+        }
+      end
+
     end
 
   end
