@@ -21,6 +21,7 @@ require "opportunity/program"
 require "opportunity/award_level"
 require "opportunity/institution"
 require "opportunity/industry"
+require "opportunity/skill"
 
 # Child Objects
 require "opportunity/occupations/education_statistic"
