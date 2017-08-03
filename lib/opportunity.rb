@@ -13,6 +13,7 @@ require "opportunity/errors"
 require "opportunity/client"
 require "opportunity/opportunity_object"
 require "opportunity/api_resource"
+require "opportunity/result_set"
 
 # Objects
 require "opportunity/occupation"

@@ -9,11 +9,12 @@ module Opportunity
           before do
             response_stub = Struct.new(:body)
             response = response_stub.new(JSON.unparse({'subject_class' => []}))
+            allow(response).to receive(:each_header).and_return({})
             allow(subject.class).to receive(:request).and_return(response)
           end
 
-          it "should return an array" do
-            expect(subject.class.list.is_a?(Array)).to eq(true)
+          it "should return a ResultSet" do
+            expect(subject.class.list.is_a?(ResultSet)).to eq(true)
           end
         end
 
@@ -24,7 +25,8 @@ module Opportunity
                   {id: 1, name: "1", overview: "1"},
                   {id: 2, name: "2", overview: "2"}
                 ]
-              }.to_json
+              }.to_json,
+              each_header: {}
             )
           }
 

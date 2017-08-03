@@ -11,6 +11,13 @@ module Opportunity
         end
       end
 
+      def stringify_keys(hash)
+        hash.inject({}) do |summ, (k,v)|
+          summ[k.to_s] = v
+          summ
+        end
+      end
+
       def underscore(string)
         string.gsub(/::/, '/').
           gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
