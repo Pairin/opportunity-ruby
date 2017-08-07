@@ -57,6 +57,11 @@ module Opportunity
           it "should return the score" do
             expect(subject_stub.evaluate!(params)).to eq(score)
           end
+
+          it "should define match method on object" do
+            subject_stub.evaluate!(params)
+            expect(subject_stub.match).to eq(score)
+          end
         end
 
       end

@@ -5,6 +5,8 @@ module Opportunity
       SKILL_KEYS = %w(id score)
       EVALUATION_URL = "/v1/evaluations/"
 
+      attr_reader :match
+
       def evaluate!(skill_assessment)
         valid_params!(skill_assessment)
 
@@ -16,7 +18,9 @@ module Opportunity
           "#{identifier}_id" => id
         }
 
-        handle_response(self.class.request(:post, EVALUATION_URL, params))
+        score = handle_response(self.class.request(:post, EVALUATION_URL, params))
+        attach_match(score)
+        score
       end
 
       private
@@ -50,6 +54,10 @@ module Opportunity
       def handle_response(response)
         parsed_response = JSON.parse(response.body)
         parsed_response['evaluation']['score']
+      end
+
+      def attach_match(match_score)
+        @match = match_score
       end
 
     end
