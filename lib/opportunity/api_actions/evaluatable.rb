@@ -12,11 +12,12 @@ module Opportunity
 
         skill_assessment.select!{ |s| valid_skill?(s) }
         identifier = self.class.class_name.downcase
-
         params = {
-          'skill_assessment' => skill_assessment,
-          "#{identifier}_id" => id
-        }
+          'evaluation' => {
+            'skill_assessment' => skill_assessment,
+            "#{identifier}_id" => id
+          }
+        }.to_json
 
         score = handle_response(self.class.request(:post, EVALUATION_URL, params))
         attach_match(score)

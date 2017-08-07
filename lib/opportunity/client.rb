@@ -27,7 +27,8 @@ module Opportunity
           request = Net::HTTP::Get.new(uri.request_uri)
         else
           request = Net::HTTP::Post.new(uri.request_uri)
-          request.set_form_data(params)
+          request.content_type = 'application/json'
+          request.body = params
         end
 
         request['Authorization'] = "Token token=#{'pairin'}"
