@@ -2,6 +2,7 @@ module Opportunity
   class Occupation < APIResource
     extend APIActions::List
     extend APIActions::Retrievable
+    include APIActions::Evaluatable
 
     has_many :programs
     has_many :skills, foreign_key: :connectable_id

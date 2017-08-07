@@ -1,6 +1,4 @@
 require 'spec_helper'
-require_relative './api_resource_spec.rb'
-require_relative './api_actions/list_spec.rb'
 
 module Opportunity
   describe AwardLevel do

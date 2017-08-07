@@ -1,13 +1,11 @@
 require 'spec_helper'
-require_relative './api_resource_spec.rb'
-require_relative './api_actions/list_spec.rb'
-require_relative './api_actions/retrievable_spec.rb'
 
 module Opportunity
   describe Occupation do
     it_behaves_like "an APIResource"
     it_behaves_like "it is retrievable"
     it_behaves_like "it has a list"
+    it_behaves_like "it is evaluatable"
 
     describe "#programs" do
       subject(:occupation) { Occupation.new(id: 1) }

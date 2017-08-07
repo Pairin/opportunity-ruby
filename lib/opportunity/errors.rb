@@ -25,4 +25,7 @@ module Opportunity
     end
   end
 
+  class InvalidParametersError < OpportunityError
+  end
+
 end
