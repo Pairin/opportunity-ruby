@@ -5,9 +5,9 @@ module Opportunity
       SKILL_KEYS = %w(id score)
 
       def evaluate!(skill_assessment)
-        if valid_params!(skill_assessment)
-          1
-        end
+        valid_params!(skill_assessment)
+
+        1
       end
 
       private
