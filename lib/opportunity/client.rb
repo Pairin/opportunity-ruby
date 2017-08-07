@@ -17,13 +17,19 @@ module Opportunity
     def execute_request(method, url, params={}, opts={})
       api_response = ''
 
-      url_for_request = finalized_url(url, params)
+      url_for_request = method == :get ? finalized_url(url, params) : endpoint_url(url)
       uri = URI(url_for_request)
 
       Net::HTTP.start(uri.host, uri.port,
         use_ssl: uri.scheme == 'https') do |http|
 
-        request = Net::HTTP::Get.new(uri.request_uri)
+        if method == :get
+          request = Net::HTTP::Get.new(uri.request_uri)
+        else
+          request = Net::HTTP::Post.new(uri.request_uri)
+          request.set_form_data(params)
+        end
+
         request['Authorization'] = "Token token=#{'pairin'}"
 
         api_response = http.request(request)
@@ -37,7 +43,11 @@ module Opportunity
     end
 
     def finalized_url(url, params)
-      Opportunity.api_base + url + Util.parameterize_hash(params)
+    endpoint_url(url) + Util.parameterize_hash(params)
+    end
+
+    def endpoint_url(url)
+      Opportunity.api_base + url
     end
 
     private

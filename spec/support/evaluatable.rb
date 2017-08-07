@@ -41,9 +41,21 @@ module Opportunity
 
         context "when valid params" do
           let(:params) { [{'id' => 1, 'score' => 1}] }
+          let(:score) { 1 }
+          let(:body) { {'evaluation' => {'score' => score}}.to_json }
+          let(:response_stub) { OpenStruct.new(body: body) }
 
-          it "should return 1" do
-            expect(subject_stub.evaluate!(params)).to eq(1)
+          it "class should receive post request" do
+            expect(subject_stub.class).to receive(:request).with(
+              :post,
+              Evaluatable::EVALUATION_URL, anything
+            ).and_return(response_stub)
+
+            subject_stub.evaluate!(params)
+          end
+
+          it "should return the score" do
+            expect(subject_stub.evaluate!(params)).to eq(score)
           end
         end
 

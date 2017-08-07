@@ -3,11 +3,20 @@ module Opportunity
     module Evaluatable
 
       SKILL_KEYS = %w(id score)
+      EVALUATION_URL = "/v1/evaluations/"
 
       def evaluate!(skill_assessment)
         valid_params!(skill_assessment)
 
-        1
+        skill_assessment.select!{ |s| valid_skill?(s) }
+        identifier = self.class.class_name.downcase
+
+        params = {
+          'skill_assessment' => skill_assessment,
+          "#{identifier}_id" => id
+        }
+
+        handle_response(self.class.request(:post, EVALUATION_URL, params))
       end
 
       private
@@ -36,6 +45,11 @@ module Opportunity
 
       def invalid_parameters(message)
         raise InvalidParametersError.new(message)
+      end
+
+      def handle_response(response)
+        parsed_response = JSON.parse(response.body)
+        parsed_response['evaluation']['score']
       end
 
     end
