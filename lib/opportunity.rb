@@ -16,6 +16,7 @@ require "opportunity/client"
 require "opportunity/opportunity_object"
 require "opportunity/api_resource"
 require "opportunity/result_set"
+require "opportunity/param_validator"
 
 # Objects
 require "opportunity/occupation"
