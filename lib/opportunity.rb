@@ -7,6 +7,7 @@ require "opportunity/api_actions/request"
 require "opportunity/api_actions/list"
 require "opportunity/api_actions/retrievable"
 require "opportunity/api_actions/evaluatable"
+require "opportunity/api_actions/creatable"
 
 # Base
 require "opportunity/util"
@@ -23,6 +24,7 @@ require "opportunity/award_level"
 require "opportunity/institution"
 require "opportunity/industry"
 require "opportunity/skill"
+require "opportunity/skill_set"
 
 # Child Objects
 require "opportunity/occupations/education_statistic"

@@ -11,7 +11,11 @@ module Opportunity
       end
 
       def resource_url
-        "/v1/#{Util.underscore(class_name).plural}"
+        "/v1/#{object_key.plural}"
+      end
+
+      def object_key
+        Util.underscore(class_name)
       end
 
       def has_many(name, definition_params={})
@@ -19,7 +23,7 @@ module Opportunity
           if definition_params[:foreign_key]
             foreign_key = definition_params[:foreign_key]
           else
-            foreign_key = self.class.name.gsub("Opportunity::", "").downcase
+            foreign_key = self.class.class_name.downcase
             foreign_key += "_id"
           end
           Util.constantize(name[0..-2]).list({foreign_key.to_sym => self.id}.merge!(params))

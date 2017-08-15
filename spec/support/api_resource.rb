@@ -17,5 +17,11 @@ module Opportunity
       end
     end
 
+    describe ".object_key" do
+      it "should return underscored and downcased representation of class" do
+        expect(subject.class.object_key).to eq(Util.underscore(subject.class.class_name))
+      end
+    end
+
   end
 end
