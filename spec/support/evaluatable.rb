@@ -45,6 +45,10 @@ module Opportunity
           let(:body) { {'evaluation' => {'score' => score}}.to_json }
           let(:response_stub) { OpenStruct.new(body: body) }
 
+          before do
+            allow(subject_stub.class).to receive(:request).and_return(response_stub)
+          end
+
           it "class should receive post request" do
             expect(subject_stub.class).to receive(:request).with(
               :post,
