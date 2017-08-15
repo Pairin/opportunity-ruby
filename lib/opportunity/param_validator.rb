@@ -53,8 +53,6 @@ module Opportunity
         valid
       end
 
-      private
-
     end
 
   end

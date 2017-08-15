@@ -5,7 +5,7 @@ module Opportunity
       def create(params={})
         validate_param_format!(params)
 
-        params = {"#{object_key}": params}
+        params = {object_key => params}.to_json
         creation_response = handle_response(request(:post, resource_url, params))
         new(creation_response)
       end
