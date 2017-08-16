@@ -5,7 +5,6 @@ module Opportunity
     it_behaves_like "an APIResource"
     it_behaves_like "it is retrievable"
     it_behaves_like "it has a list"
-    it_behaves_like "it is evaluatable"
 
     describe "#programs" do
       subject(:occupation) { Occupation.new(id: 1) }

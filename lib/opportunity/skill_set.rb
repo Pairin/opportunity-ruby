@@ -3,6 +3,7 @@ module Opportunity
 
     extend APIActions::Retrievable
     extend APIActions::Creatable
+    include APIActions::Evaluatable
 
     class << self
 
