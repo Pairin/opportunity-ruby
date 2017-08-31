@@ -26,6 +26,7 @@ require 'opportunity/institution'
 require 'opportunity/industry'
 require 'opportunity/skill'
 require 'opportunity/skill_set'
+require 'opportunity/path'
 
 # Child Objects
 require 'opportunity/occupations/education_statistic'
