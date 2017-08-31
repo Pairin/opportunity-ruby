@@ -3,9 +3,7 @@ module Opportunity
     module Request
 
       def request(method, url, params={}, opts={})
-        client = Client.active_client
-        
-        client.execute_request(method, url, params, opts)
+        ::Opportunity.client.execute_request(method, url, params, opts)
       end
 
     end

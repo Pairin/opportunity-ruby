@@ -3,15 +3,8 @@ require 'net/http'
 module Opportunity
   class Client
 
-    def initialize
-    end
-
-    class << self
-
-      def active_client
-        @active_client ||= Client.new
-      end
-
+    def initialize(auth_token)
+      @auth_token = auth_token
     end
 
     def execute_request(method, url, params={}, opts={})
@@ -31,12 +24,12 @@ module Opportunity
           request.body = params
         end
 
-        request['Authorization'] = "Token token=#{'pairin'}"
+        request['Authorization'] = "Token token=#{@auth_token}"
 
         api_response = http.request(request)
       end
 
-      if api_response.code != "200"
+      if api_response.code != '200'
         raise api_error(api_response)
       end
 
