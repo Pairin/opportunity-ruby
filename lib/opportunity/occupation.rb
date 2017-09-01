@@ -9,7 +9,7 @@ module Opportunity
     class << self
 
       def custom_accepted_params
-        ['title', 'wage_min', 'wage_max', 'industry', 'interests', 'ed', 'order', 'skill_set_id']
+        ['title', 'wage_min', 'wage_max', 'industry', 'interests', 'ed', 'order', 'skill_set_id', 'steamy']
       end
 
       def child_mappings
