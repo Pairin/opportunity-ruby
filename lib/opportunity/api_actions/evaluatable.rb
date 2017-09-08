@@ -7,7 +7,7 @@ module Opportunity
       end
 
       def evaluation_url
-        self.class.singular_resource_url(self.id) + 'evaluate'
+        self.class.singular_resource_url(self.id) + '/evaluate'
       end
 
       private
