@@ -21,7 +21,7 @@ module Opportunity
         else
           request = Net::HTTP::Post.new(uri.request_uri)
           request.content_type = 'application/json'
-          request.body = params
+          request.body = params if !params.empty?
         end
 
         request['Authorization'] = "Token token=#{@auth_token}"
