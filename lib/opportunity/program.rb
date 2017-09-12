@@ -1,6 +1,7 @@
 module Opportunity
   class Program < APIResource
     extend APIActions::List
+    extend APIActions::Retrievable
 
     class << self
 
