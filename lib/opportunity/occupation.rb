@@ -16,7 +16,9 @@ module Opportunity
         {
           education: Occupations::EducationStatistic,
           employment: Occupations::EmploymentStatistic,
-          wage: Occupations::WageStatistic
+          wage: Occupations::WageStatistic,
+          industries: Industry,
+          similar_occupations: Occupation
         }
       end
 
