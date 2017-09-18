@@ -1,3 +1,6 @@
+# Child Objects
+require 'opportunity/occupations/experience_breakdown'
+
 module Opportunity
   module Occupations
     class EmploymentStatistic < OpportunityObject

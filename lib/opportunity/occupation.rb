@@ -1,3 +1,8 @@
+# Child Objects
+require 'opportunity/occupations/education_statistic'
+require 'opportunity/occupations/employment_statistic'
+require 'opportunity/occupations/wage_statistic'
+
 module Opportunity
   class Occupation < APIResource
     extend APIActions::List
