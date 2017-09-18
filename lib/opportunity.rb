@@ -32,6 +32,7 @@ require 'opportunity/path'
 require 'opportunity/occupations/education_statistic'
 require 'opportunity/occupations/employment_statistic'
 require 'opportunity/occupations/wage_statistic'
+require 'opportunity/occupations/experience_breakdown'
 
 module Opportunity
 
