@@ -33,11 +33,15 @@ module Opportunity
   @api_base = 'https://staging-opportunity.pairin.com'
 
   class << self
-    attr_reader :api_base, :client
-    attr_accessor :auth_token
+    attr_reader :api_base, :client, :auth_token
 
     def client
       @client ||= Client.new(auth_token)
+    end
+
+    def auth_token=(token)
+      @client = nil
+      @auth_token = token
     end
 
   end
