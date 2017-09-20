@@ -9,7 +9,10 @@ module Opportunity
       def creation_format
         {
           'start_point' => '',
-          'end_point' => ''
+          'end_point' => '',
+          'inputs' => {
+            'skill_set_id' => ''
+          }
         }.freeze
       end
 
