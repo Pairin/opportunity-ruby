@@ -20,6 +20,7 @@ require 'opportunity/param_validator'
 
 # Objects
 require 'opportunity/occupation'
+require 'opportunity/occupation_title'
 require 'opportunity/program'
 require 'opportunity/award_level'
 require 'opportunity/institution'
