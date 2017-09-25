@@ -11,7 +11,8 @@ module Opportunity
           'start_point' => '',
           'end_point' => '',
           'inputs' => {
-            'skill_set_id' => ''
+            'skill_set_id' => '',
+            'award_level' => ''
           }
         }.freeze
       end
