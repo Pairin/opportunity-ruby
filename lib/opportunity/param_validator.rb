@@ -1,6 +1,8 @@
 module Opportunity
   class ParamValidator
 
+    OPTIONAL_IDENTIFIER = '~'
+
     class << self
 
       def validate_hash(attempt, expectation)
@@ -8,11 +10,14 @@ module Opportunity
 
         if attempt.is_a?(Hash) && !attempt.empty?
           expectation.each do |(k,v)|
-            attempt_value = attempt[k]
+            optional_att = k[0] == OPTIONAL_IDENTIFIER
+            value_key = optional_att ? k[1..-1] : k
+            attempt_value = attempt[value_key]
+            
             if attempt_value.nil?
-              valid = false
+              valid = optional_att
             else
-              valid = validate_value(attempt_value, expectation[k])
+              valid = validate_value(attempt_value, expectation[value_key])
             end
             break if !valid
           end
