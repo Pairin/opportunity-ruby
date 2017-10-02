@@ -13,11 +13,11 @@ module Opportunity
             optional_att = k[0] == OPTIONAL_IDENTIFIER
             value_key = optional_att ? k[1..-1] : k
             attempt_value = attempt[value_key]
-            
+
             if attempt_value.nil?
               valid = optional_att
             else
-              valid = validate_value(attempt_value, expectation[value_key])
+              valid = validate_value(attempt_value, expectation[k])
             end
             break if !valid
           end
