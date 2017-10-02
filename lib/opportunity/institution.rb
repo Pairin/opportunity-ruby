@@ -7,7 +7,7 @@ module Opportunity
     class << self
 
       def custom_accepted_params
-        ['name']
+        ['name', 'award_level', 'program_id']
       end
 
     end
