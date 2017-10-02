@@ -20,9 +20,6 @@ module Opportunity
       end
 
     end
-
-
-
-
+    
   end
 end
