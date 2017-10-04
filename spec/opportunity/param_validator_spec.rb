@@ -22,8 +22,20 @@ module Opportunity
       context 'when attempt is empty hash' do
         let(:attempt) { {} }
 
-        it 'equals false' do
-          expect_result(false)
+        context 'and is required' do
+          let(:expectation) { {'!something' => {}} }
+
+          it 'equals false' do
+            expect_result(false)
+          end
+        end
+
+        context 'and isn\'t required' do
+          let(:expectation) { {'something' => {}} }
+
+          it 'equals true' do
+            expect_result(true)
+          end
         end
       end
 

@@ -7,14 +7,12 @@ module Opportunity
 
       def validate_hash(attempt, expectation)
         valid = true
-        if attempt.is_a?(Hash) && !attempt.empty?
+        if attempt.is_a?(Hash)
           expectation.each do |(k,v)|
             required_att = k[0] == REQUIRED_IDENTIFIER
             value_key = required_att ? k[1..-1] : k
             attempt_value = attempt[value_key]
 
-
-            # if its empty and required its invalid. if empty and not required its true
             if attempt_value.nil?
               valid = !required_att
             else
