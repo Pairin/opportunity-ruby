@@ -31,7 +31,7 @@ module Opportunity
         let(:attempt) { {'something' => 1, 'something else' => 1} }
 
         context 'and keys are required' do
-          let(:expectation) { {'something' => 1, 'something more' => 1} }
+          let(:expectation) { {'!something' => 1, '!something more' => 1} }
 
           it 'equals false' do
             expect_result(false)
@@ -39,7 +39,7 @@ module Opportunity
         end
 
         context 'and keys are not required' do
-          let(:expectation) { {'something' => 1, '~something more' => 1} }
+          let(:expectation) { {'something' => 1, 'something more' => 1} }
 
           context 'and are missing' do
             it 'equals true' do
@@ -49,7 +49,7 @@ module Opportunity
 
           context 'and are incorrect type' do
             let(:attempt) { {'something' => '1'} }
-            let(:expectation) { {'~something' => 1} }
+            let(:expectation) { {'something' => 1} }
 
             it 'equals false' do
               expect_result(false)
@@ -58,8 +58,6 @@ module Opportunity
           end
         end
       end
-
-
 
       context 'when attempt value isn\'t same class as expectation value' do
         let(:attempt) { {'something' => 1, 'something else' => '1'} }

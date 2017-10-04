@@ -8,18 +8,18 @@ module Opportunity
 
       def creation_format
         {
-          'start_point' => '',
-          'end_point' => '',
+          '!start_point' => '',
+          '!end_point' => '',
           'inputs' => {
-            '~skill_set_id' => '',
-            '~award_level' => '',
-            '~lat' => 0.0,
-            '~long' => 0.0
+            'skill_set_id' => '',
+            'award_level' => '',
+            'lat' => 0.0,
+            'long' => 0.0
           }
         }.freeze
       end
 
     end
-    
+
   end
 end
