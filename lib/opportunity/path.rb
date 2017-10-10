@@ -21,5 +21,11 @@ module Opportunity
 
     end
 
+    def reset
+      response = Path.request(:post, "#{Path.singular_resource_url(self.id)}/reset")
+      parsed_response = JSON.parse(response.body)
+      Path.send(:initialize_resource, parsed_response)
+    end
+
   end
 end
