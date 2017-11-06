@@ -11,7 +11,8 @@ module Opportunity
         {
           '!skill_evaluations' => [
             {'!skill_id' => '', '!score' => 0.0}
-          ]
+          ],
+          'occupation_id' => ''
         }.freeze
       end
 
