@@ -11,7 +11,7 @@ module Opportunity
       end
 
       def resource_url
-        "/v1/#{object_key.plural}"
+        "/#{object_key.plural}"
       end
 
       def object_key
