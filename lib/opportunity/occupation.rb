@@ -14,7 +14,12 @@ module Opportunity
     class << self
 
       def custom_accepted_params
-        ['title', 'wage_min', 'wage_max', 'industry', 'interests', 'ed', 'order', 'onet_code', 'skill_set_id', 'hawt', 'order_by']
+        [
+          'title', 'wage_min', 'wage_max', 'industry',
+          'interests', 'ed', 'order', 'onet_code',
+          'skill_set_id', 'hawt', 'order_by',
+          'lat', 'long', 'radius'
+        ]
       end
 
       def child_mappings
