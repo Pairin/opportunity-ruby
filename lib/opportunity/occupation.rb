@@ -9,7 +9,7 @@ module Opportunity
     extend APIActions::Retrievable
 
     has_many :programs
-    has_many :skills, foreign_key: :connectable_id
+    has_many :skills, foreign_key: :connectable_ids
 
     class << self
 
