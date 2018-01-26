@@ -4,6 +4,9 @@ module Opportunity
     extend APIActions::Retrievable
     extend APIActions::Creatable
 
+    include APIActions::Updatable
+
+
     class << self
 
       def creation_format
@@ -17,6 +20,17 @@ module Opportunity
             'long' => 0.0
           }
         }.freeze
+      end
+
+      def update_format
+        {
+          '!inputs' => {
+            'skill_set_id' => '',
+            'award_level' => '',
+            'lat' => 0.0,
+            'long' => 0.0
+          }
+        }
       end
 
     end

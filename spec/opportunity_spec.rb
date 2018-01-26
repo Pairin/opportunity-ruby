@@ -17,6 +17,8 @@ describe Opportunity do
   end
 
   describe '#api_base' do
+    before { Opportunity.production = nil }
+
     context 'when production isn\'t set' do
       it 'equals STAGING_OPPORTUNITY_URL' do
         expect(Opportunity.api_base).to eq(Opportunity::STAGING_OPPORTUNITY_URL)

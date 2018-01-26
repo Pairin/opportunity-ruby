@@ -8,6 +8,7 @@ require 'opportunity/api_actions/list'
 require 'opportunity/api_actions/retrievable'
 require 'opportunity/api_actions/evaluatable'
 require 'opportunity/api_actions/creatable'
+require 'opportunity/api_actions/updatable'
 
 # Base
 require 'opportunity/util'
