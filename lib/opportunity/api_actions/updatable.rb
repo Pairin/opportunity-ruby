@@ -6,7 +6,7 @@ module Opportunity
         validate_param_format!(params)
 
         params = {klass.object_key => params}.to_json
-        update_response = handle_response(request(:put, klass.singular_resource_url(self.id), params))
+        update_response = handle_response(klass.request(:put, klass.singular_resource_url(self.id), params))
         klass.new(update_response)
       end
 
