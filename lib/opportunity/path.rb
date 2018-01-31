@@ -16,6 +16,7 @@ module Opportunity
           'inputs' => {
             'skill_set_id' => '',
             'award_level' => '',
+            'program_id' => '',
             'lat' => 0.0,
             'long' => 0.0
           }
@@ -27,6 +28,7 @@ module Opportunity
           '!inputs' => {
             'skill_set_id' => '',
             'award_level' => '',
+            'program_id' => '',
             'lat' => 0.0,
             'long' => 0.0
           }
