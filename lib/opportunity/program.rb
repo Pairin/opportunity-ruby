@@ -9,7 +9,7 @@ module Opportunity
     class << self
 
       def custom_accepted_params
-        ['occupation_id', 'level_id', 'institution_id']
+        ['keywords', 'award_level']
       end
 
       def child_mappings
