@@ -19,7 +19,13 @@ module Opportunity
         if method == :get
           request = Net::HTTP::Get.new(uri.request_uri)
         else
-          request = Net::HTTP::Post.new(uri.request_uri)
+          request = case method
+          when :post
+            Net::HTTP::Post.new(uri.request_uri)
+          when :put
+            Net::HTTP::Put.new(uri.request_uri)
+          end
+         
           request.content_type = 'application/json'
           request.body = params if !params.empty?
         end
