@@ -18,7 +18,8 @@ module Opportunity
             'award_level' => '',
             'program_id' => '',
             'lat' => 0.0,
-            'long' => 0.0
+            'long' => 0.0,
+            'exclusions' => ['']
           }
         }.freeze
       end
@@ -30,7 +31,8 @@ module Opportunity
             'award_level' => '',
             'program_id' => '',
             'lat' => 0.0,
-            'long' => 0.0
+            'long' => 0.0,
+            'exclusions' => ['']
           }
         }
       end
