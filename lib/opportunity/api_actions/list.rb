@@ -2,9 +2,10 @@ module Opportunity
   module APIActions
     module List
 
-      ACCEPTABLE_LIST_PARAMS = %w(page limit)
+      ACCEPTABLE_LIST_PARAMS = %w(page limit offset)
       PAGE_DEFAULT = 1
       LIMIT_DEFAULT = 25
+      OFFSET_DEFAULT = 0
 
       def list(params={}, opts={})
         params = Util.stringify_keys(default_params.merge!(params))

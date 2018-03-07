@@ -6,7 +6,7 @@ module Opportunity
     extend Forwardable
     include Enumerable
 
-    ACCEPTED_ATTRS = %w(x-total-count page limit)
+    ACCEPTED_ATTRS = %w(x-total-count page limit offset)
 
     def_delegators :@results, :each, :map, :inject, :first, :last, :count, :length, :empty?
     attr_reader :results, :attrs
@@ -50,6 +50,10 @@ module Opportunity
 
     def limit
       @attrs['limit'] || APIActions::List::LIMIT_DEFAULT
+    end
+
+    def offset
+      @attrs['offset'] || APIActions::List::OFFSET_DEFAULT
     end
 
     private
