@@ -2,15 +2,12 @@ module Opportunity
   module APIActions
     module List
 
-      ACCEPTABLE_LIST_PARAMS = %w(page limit offset)
-      PAGE_DEFAULT = 1
+      ACCEPTABLE_LIST_PARAMS = %w(limit offset)
       LIMIT_DEFAULT = 25
       OFFSET_DEFAULT = 0
 
       def list(params={}, opts={})
         params = Util.stringify_keys(default_params.merge!(params))
-        params.delete('page') if params['offset'] && params['page']
-
         response = request(:get, self.resource_url, accepted_params(params), opts)
         parsed_response = JSON.parse(response.body)
         attrs = params.merge!(response.each_header.inject({}){|summ, (k,v)| summ[k] = v; summ})
@@ -38,7 +35,7 @@ module Opportunity
 
       def default_params
         {
-          page: PAGE_DEFAULT,
+          offset: OFFSET_DEFAULT,
           limit: LIMIT_DEFAULT
         }
       end

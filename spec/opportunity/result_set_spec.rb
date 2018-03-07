@@ -31,11 +31,11 @@ module Opportunity
       end
     end
 
-    context "when page not set" do
+    context "when offset not set" do
       subject(:set) { ResultSet.new([]) }
 
       it "should return List default" do
-        expect(set.page).to eq(APIActions::List::PAGE_DEFAULT)
+        expect(set.offset).to eq(APIActions::List::OFFSET_DEFAULT)
       end
     end
 
