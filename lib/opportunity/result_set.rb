@@ -45,7 +45,11 @@ module Opportunity
     end
 
     def page
-      @attrs['page'] || APIActions::List::PAGE_DEFAULT
+      if @attrs['offset']
+        nil
+      else
+        @attrs['page'] || APIActions::List::PAGE_DEFAULT
+      end
     end
 
     def limit
@@ -53,7 +57,7 @@ module Opportunity
     end
 
     def offset
-      @attrs['offset'] || APIActions::List::OFFSET_DEFAULT
+      @attrs['offset']
     end
 
     private

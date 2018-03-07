@@ -9,6 +9,8 @@ module Opportunity
 
       def list(params={}, opts={})
         params = Util.stringify_keys(default_params.merge!(params))
+        params.delete('page') if params['offset'] && params['page']
+
         response = request(:get, self.resource_url, accepted_params(params), opts)
         parsed_response = JSON.parse(response.body)
         attrs = params.merge!(response.each_header.inject({}){|summ, (k,v)| summ[k] = v; summ})
