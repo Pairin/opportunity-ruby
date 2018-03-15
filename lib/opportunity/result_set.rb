@@ -6,7 +6,7 @@ module Opportunity
     extend Forwardable
     include Enumerable
 
-    ACCEPTED_ATTRS = %w(x-total-count limit offset)
+    ACCEPTED_ATTRS = %w(total limit offset)
 
     def_delegators :@results, :each, :map, :inject, :first, :last, :count, :length, :empty?
     attr_reader :results, :attrs
@@ -41,7 +41,7 @@ module Opportunity
     end
 
     def total
-      @attrs['x-total-count']
+      @attrs['total']
     end
 
     def limit
