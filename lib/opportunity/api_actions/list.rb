@@ -18,7 +18,7 @@ module Opportunity
       def initialize_list(response, attrs={})
         response_keys = response.keys
         if response_keys.include?(PAGINATION_KEY)
-          attrs.merge!(response[PAGINATION_KEY])
+          attrs.merge!(response[PAGINATION_KEY]) if response[PAGINATION_KEY]
         end
 
         response_list = response[response.keys[0]]
