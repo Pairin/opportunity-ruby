@@ -2,6 +2,7 @@
 require 'opportunity/occupations/education_statistic'
 require 'opportunity/occupations/employment_statistic'
 require 'opportunity/occupations/wage_statistic'
+require 'opportunity/occupations/location'
 
 module Opportunity
   class Occupation < APIResource
@@ -28,7 +29,8 @@ module Opportunity
           employment: Occupations::EmploymentStatistic,
           wage: Occupations::WageStatistic,
           industries: Industry,
-          similar_occupations: Occupation
+          similar_occupations: Occupation,
+          location: Occupations::Location
         }
       end
 
