@@ -13,6 +13,7 @@ module Opportunity
         {
           '!start_point' => '',
           '!end_point' => '',
+          'do_it_now' => true,
           'inputs' => {
             'skill_set_id' => '',
             'award_level' => '',
