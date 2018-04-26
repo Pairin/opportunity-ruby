@@ -36,7 +36,6 @@ module Opportunity
 
   class << self
     attr_reader :client, :auth_token
-    attr_accessor :production
 
     def client
       @client ||= Client.new(auth_token)
@@ -45,6 +44,10 @@ module Opportunity
     def auth_token=(token)
       @client = nil
       @auth_token = token
+    end
+
+    def production=(value)
+      @production = value
     end
 
     def api_base
