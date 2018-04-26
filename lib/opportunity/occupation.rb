@@ -19,7 +19,7 @@ module Opportunity
           'title', 'wage_min', 'wage_max', 'industry',
           'interests', 'ed', 'order', 'onet_code',
           'skill_set_id', 'hawt', 'order_by',
-          'lat', 'long', 'radius'
+          'lat', 'long', 'radius', 'ids'
         ]
       end
 
