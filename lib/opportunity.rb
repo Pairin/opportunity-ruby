@@ -31,7 +31,7 @@ require 'opportunity/skill_set'
 require 'opportunity/path'
 
 module Opportunity
-  PRODUCTION_OPPORTUNITY_URL = 'https://op.pairin.com'
+  PRODUCTION_OPPORTUNITY_URL = 'https://opp.pairin.com'
   STAGING_OPPORTUNITY_URL = 'https://staging-opportunity.pairin.com'
 
   class << self
