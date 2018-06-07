@@ -32,12 +32,11 @@ require 'opportunity/skill_set'
 require 'opportunity/path'
 
 module Opportunity
-  PRODUCTION_OPPORTUNITY_URL = 'https://op.pairin.com'
+  PRODUCTION_OPPORTUNITY_URL = 'https://opp.pairin.com'
   STAGING_OPPORTUNITY_URL = 'https://staging-opportunity.pairin.com'
 
   class << self
     attr_reader :client, :auth_token
-    attr_accessor :production
 
     def client
       @client ||= Client.new(auth_token)
@@ -46,6 +45,10 @@ module Opportunity
     def auth_token=(token)
       @client = nil
       @auth_token = token
+    end
+
+    def production=(value)
+      @production = value
     end
 
     def api_base
