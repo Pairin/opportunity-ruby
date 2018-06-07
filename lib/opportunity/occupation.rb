@@ -19,7 +19,7 @@ module Opportunity
           'title', 'wage_min', 'wage_max', 'industry',
           'interests', 'ed', 'order', 'onet_code',
           'skill_set_id', 'hawt', 'order_by',
-          'lat', 'long', 'radius'
+          'lat', 'long', 'radius', 'job_family'
         ]
       end
 
@@ -29,6 +29,7 @@ module Opportunity
           employment: Occupations::EmploymentStatistic,
           wage: Occupations::WageStatistic,
           industries: Industry,
+          job_families: JobFamily,
           similar_occupations: Occupation,
           location: Occupations::Location
         }
