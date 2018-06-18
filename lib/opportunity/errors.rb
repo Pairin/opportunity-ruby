@@ -14,6 +14,7 @@ module Opportunity
   end
 
   class ApiError < OpportunityError
+    attr_reader :response_code
 
     def initialize(message, response_code)
       @message = message
