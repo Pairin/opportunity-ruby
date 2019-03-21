@@ -15,6 +15,7 @@ module Opportunity
           '!end_point' => '',
           'do_it_now' => true,
           'inputs' => {
+            'custom_pathway' => '',
             'skill_set_id' => '',
             'award_level' => '',
             'program_id' => '',
